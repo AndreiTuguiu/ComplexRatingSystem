@@ -1,6 +1,5 @@
+using ComplexRatingSystem.PublishedLanguage.Commands;
 using Microsoft.AspNetCore.Mvc;
-using RatingSystem.Application.Queries;
-using RatingSystem.PublishedLanguage.Commands;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;

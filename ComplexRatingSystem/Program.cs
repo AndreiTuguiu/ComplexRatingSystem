@@ -1,4 +1,5 @@
 using ComplexRatingSystem.Data;
+using ComplexRatingSystem.PublishedLanguage.Events;
 using FluentValidation;
 using MediatR;
 using MediatR.Pipeline;
@@ -8,7 +9,6 @@ using RatingSystem.Application;
 using RatingSystem.Application.Queries;
 using RatingSystem.Data;
 using RatingSystem.ExternalService;
-using RatingSystem.PublishedLanguage.Events;
 using System;
 using System.IO;
 using System.Threading;
@@ -47,7 +47,7 @@ namespace RatingSystem
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>));
             services.AddScoped(typeof(IRequestPreProcessor<>), typeof(ValidationPreProcessor<>));
 
-            services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(AccountMade).Assembly);
+            services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(RatingCreated).Assembly);
 
             services.AddMediatR(new[] { typeof(ListOfAccounts).Assembly, typeof(AllEventsHandler).Assembly }); // get all IRequestHandler and INotificationHandler classes
 

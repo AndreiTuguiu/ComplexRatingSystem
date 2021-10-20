@@ -9,9 +9,6 @@ namespace ComplexRatingSystem.Data
 {
     public partial class ConferenceDbContext : DbContext
     {
-        public ConferenceDbContext()
-        {
-        }
 
         public ConferenceDbContext(DbContextOptions<ConferenceDbContext> options)
             : base(options)

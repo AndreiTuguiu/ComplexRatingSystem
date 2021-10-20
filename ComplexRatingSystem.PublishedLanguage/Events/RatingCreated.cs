@@ -1,8 +1,8 @@
 using MediatR;
 
-namespace ComplexRatingSystem.PublishedLanguage.Commands
+namespace ComplexRatingSystem.PublishedLanguage.Events
 {
-    public class RatingUpdatesCommand : IRequest
+    public class RatingCreated: INotification
     {
         public int UserId { get; set; }
         public int ExternalId { get; set; }

@@ -8,12 +8,12 @@ using RatingSystem.WebApi.Swagger;
 using MediatR;
 using RatingSystem.Application.Queries;
 using RatingSystem.ExternalService;
-using RatingSystem.PublishedLanguage.Events;
 using MediatR.Pipeline;
 using FluentValidation;
 using RatingSystem.WebApi.MediatorPipeline;
 using RatingSystem.WebApi.Middleware;
 using RatingSystem.Data;
+using ComplexRatingSystem.PublishedLanguage.Events;
 
 namespace RatingSystem.WebApi
 {
@@ -44,7 +44,7 @@ namespace RatingSystem.WebApi
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>));
             services.AddScoped(typeof(IRequestPreProcessor<>), typeof(ValidationPreProcessor<>));
 
-            services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(AccountMade).Assembly);
+            services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(RatingCreated).Assembly);
 
             services.RegisterBusinessServices(Configuration);
             services.AddSwagger(Configuration["Identity:Authority"]);
